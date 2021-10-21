@@ -186,21 +186,11 @@ class ParkingsController extends Controller
                   
                             <form action="' . route('parkiran_keluar', $query->id) . '" method="POST">
                                 ' . method_field('put') . csrf_field() . '
-                                <button type="submit" class="btn btn-sm btn-info float-left mr-2">
+                                <button type="submit" class="btn btn-info mr-auto">
                                     Keluar
                                 </button>
                             </form>
                     
-                            <a href = "' . route('parkiran_edit', $query->id) . '"
-                            class = "btn btn-sm btn-warning float-left mr-2">
-                                Edit </a>
-
-                            <form action="' . route('parkiran_delete', $query->id) . '" method="POST">
-                                ' . method_field('delete') . csrf_field() . '
-                                <button type="submit" class="btn btn-sm btn-danger" onclick = "return confirm(\'Anda yakin ingin menghapus data ?\') ">
-                                    Hapus
-                                </button>
-                            </form>
                             ';
                 })->rawColumns(['aksi'])
                 ->addIndexColumn()
@@ -393,7 +383,7 @@ class ParkingsController extends Controller
             'status' => 'Keluar',
         ]);
 
-        return redirect('/parkir')->with('status', 'Kendaraaan Dengan Plat ' . $parking->no_plat . ' Telah Keluar');
+        return redirect('/kendaraanparkir')->with('status', 'Kendaraaan Dengan Plat ' . $parking->no_plat . ' Telah Keluar');
     }
 
     public function exportexcel(Request $request)
