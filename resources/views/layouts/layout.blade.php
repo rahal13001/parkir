@@ -74,8 +74,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data Parkiran :</h6>
-                        <a class="collapse-item" href="/kendaraanparkir" target="_blank">Kendaraan Sedang Parkir</a>
-                        <a class="collapse-item" href="/parkir" target="_blank">Data Keseluruhan</a>
+                        <a class="collapse-item" href="/kendaraanparkir">Kendaraan Sedang Parkir</a>
+                        <a class="collapse-item" href="/parkir">Data Keseluruhan</a>
                     </div>
                 </div>
 			</li>

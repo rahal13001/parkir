@@ -25,13 +25,13 @@ class ParkingsController extends Controller
                 //Jika tanggal awal(from_date) hingga tanggal akhir(to_date) adalah sama maka
                 if ($request->from_date === $request->to_date) {
                     //kita filter tanggalnya sesuai dengan request from_date
-                    $query = Parking::whereDate('tanggal', '=', $request->from_date)->with('lokasiparkir')->get();
+                    $query = Parking::whereDate('tanggal', '=', $request->from_date)->whereNotNull('parkinglocation_id')->with('lokasiparkir')->get();
                 } else {
                     //kita filter dari tanggal awal ke akhir
-                    $query = Parking::whereBetween('tanggal', array($request->from_date, $request->to_date))->with('lokasiparkir')->get();
+                    $query = Parking::whereBetween('tanggal', array($request->from_date, $request->to_date))->whereNotNull('parkinglocation_id')->with('lokasiparkir')->get();
                 }
             } else {
-                $query = Parking::query()->with('lokasiparkir');
+                $query = Parking::query()->whereNotNull('parkinglocation_id')->with('lokasiparkir');
             }
 
             return DataTables::of($query)
@@ -69,7 +69,7 @@ class ParkingsController extends Controller
      */
     public function create()
     {
-        $parkinglocation = Parkinglocation::get();
+        $parkinglocation = Parkinglocation::where('status', 'Bisa')->get();
         return view('parkiran.parkir.tambah', compact('parkinglocation'));
     }
 
@@ -162,13 +162,14 @@ class ParkingsController extends Controller
                 //Jika tanggal awal(from_date) hingga tanggal akhir(to_date) adalah sama maka
                 if ($request->from_date === $request->to_date) {
                     //kita filter tanggalnya sesuai dengan request from_date
-                    $query = Parking::whereDate('tanggal', '=', $request->from_date)->with('lokasiparkir')->where('status', 'Masuk')->get();
+                    $query = Parking::whereDate('tanggal', '=', $request->from_date)->whereNotNull('parkinglocation_id')->with('lokasiparkir')->where(['status' => 'Masuk'])
+                        ->get();
                 } else {
                     //kita filter dari tanggal awal ke akhir
-                    $query = Parking::whereBetween('tanggal', array($request->from_date, $request->to_date))->with('lokasiparkir')->where('status', 'Masuk')->get();
+                    $query = Parking::whereBetween('tanggal', array($request->from_date, $request->to_date))->whereNotNull('parkinglocation_id')->with('lokasiparkir')->where('status', 'Masuk')->get();
                 }
             } else {
-                $query = Parking::query()->where('status', 'Masuk')->with('lokasiparkir');
+                $query = Parking::query()->where('status', 'Masuk')->whereNotNull('parkinglocation_id')->with('lokasiparkir');
             }
 
             return DataTables::of($query)
@@ -210,7 +211,7 @@ class ParkingsController extends Controller
      */
     public function edit(Parking $parking)
     {
-        $parkinglocation = Parkinglocation::get();
+        $parkinglocation = Parkinglocation::where('status', 'Bisa')->get();
         $item = Parking::with('lokasiparkir')->where('id', $parking->id)->get();
         return view('parkiran.parkir.edit', compact('parking', 'parkinglocation', 'item'));
     }

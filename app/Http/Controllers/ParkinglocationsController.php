@@ -31,7 +31,7 @@ class ParkinglocationsController extends Controller
                                 Edit </a></div>
                                 <form action="' . route('lokasiparkir_delete', $query->id) . '" method="POST">
                                 ' . method_field('delete') . csrf_field() . '
-                                <button type="submit" class="btn btn-danger" onclick = "return confirm(\'Anda yakin ingin menghapus data ?\') ">
+                                <button type="submit" class="btn btn-danger" onclick = "return confirm(\'Menghapus data akan menghilangkan keterangan lokasi parkir pada data parkir yang terhubung, yakin masih mau hapus ?\') ">
                                     Hapus
                                 </button>
                             </form>
