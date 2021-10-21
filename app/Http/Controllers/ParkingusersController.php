@@ -278,9 +278,11 @@ class ParkingusersController extends Controller
                 $keadaan = $ada->terparkir;
                 $cek = $ada->kapasitas;
             }
+            //cek ketersediaan tempat
+            $tersedia = $cek - $keadaan;
 
             //Jika tempat penuh maka kembalikan
-            if ($keadaan > $cek) {
+            if ($tersedia <= 0) {
                 return redirect()->back()->with('status', 'Tempat Parkir Sudah Penuh, Silahkan Pilih Lokasi Lain Yang Masih Kosong');
             }
 

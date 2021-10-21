@@ -26,6 +26,9 @@
                             <h6 class="text-center">Nama : {{ $nama }}</h6>
                             <h6 class="text-center">Tempat Parkir : {{ $lokasi }}, Jenis Kendaraan : {{ $jenis_kendaraan }}, Warna : {{ $warna }}</h6>
                             <p class="text-center">Tanggal : {{ $tanggal }}, Jam : {{ $jam }}</p>
+
+                            <br>
+                            <p class="text-center alert alert-warning">Jangan Reload/Tinggalkan Halaman Ini Sebelum Mendownload Kartu Parkir</p>
                             
                             <input type="hidden" name="nomor_parkir" value="{{ $display_nomorparkir }}">
                             <input type="hidden" name="nama" value="{{ $nama }}">
@@ -36,7 +39,7 @@
                             <input type="hidden" name="jenis_kendaraan" value="{{ $jenis_kendaraan }}">
                             <input type="hidden" name="warna" value="{{ $warna }}">
                             <div class="container mt-3 text-center">
-                                <button class="btn btn-primary" type="submit">Cetak Kartu</button>
+                                <button class="btn btn-primary" type="submit">Download Kartu Parkir</button>
                             </div>
 
                             {{-- <br>
@@ -50,4 +53,10 @@
         </div>
     </section>
 </main>
+
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
 @endsection
