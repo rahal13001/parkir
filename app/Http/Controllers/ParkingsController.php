@@ -270,6 +270,44 @@ class ParkingsController extends Controller
             Parkinglocation::where('id', $parkinglocation_id)->update([
                 'terparkir' => $terparkir
             ]);
+        } else {
+            $eksis = Parkinglocation::where('id', $parkinglocation_id)->get('terparkir');
+            foreach ($eksis as $ada) {
+                $keadaan = $ada->terparkir;
+            }
+            $terparkir = $keadaan - 1;
+
+            Parkinglocation::where('id', $parkinglocation_id)->update([
+                'terparkir' => $terparkir
+            ]);
+        }
+
+        //pengkondisian jika lokasi parkirnya di pindah
+        //cek dulu sebelumnya dimana parkirnya
+        $sebelumnya = Parking::with('lokasiparkir')->where('id', $parking->id)->get();
+        foreach ($sebelumnya as $before) {
+            $tempatlama = $before->parkinglocation_id;
+            $jumlahlama = $before->lokasiparkir->terparkir;
+        }
+        //jika beneran pindah
+        if ($tempatlama != $parkinglocation_id) {
+            $terparkirlama = $jumlahlama - 1;
+
+            Parkinglocation::where('id', $tempatlama)->update([
+                'terparkir' => $terparkirlama
+            ]);
+
+            if ($status == 'Keluar') {
+                $cekditempatbaru = Parkinglocation::where('id', $parkinglocation_id)->get('terparkir');
+                foreach ($cekditempatbaru as $ada) {
+                    $tempatbaru = $ada->terparkir;
+                }
+                $terparkirtempatbaru = $tempatbaru + 1;
+
+                Parkinglocation::where('id', $parkinglocation_id)->update([
+                    'terparkir' => $terparkirtempatbaru
+                ]);
+            }
         }
 
         Parking::where('id', $parking->id)->update([
