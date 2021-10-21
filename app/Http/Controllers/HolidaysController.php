@@ -78,7 +78,6 @@ class HolidaysController extends Controller
             'mulai' => 'required',
             'selesai' => 'required',
             'keterangan' => 'required',
-            'lokasi' => 'required'
         ]);
 
         $data = $request->all();
@@ -87,7 +86,6 @@ class HolidaysController extends Controller
             'mulai' => $data['mulai'],
             'selesai' => $data['selesai'],
             'keterangan' => $data['keterangan'],
-            'lokasi' =>  json_encode($data['lokasi'])
 
         ]);
         return redirect('/libur')->with('status', 'Data Hari Libur Berhasil Ditambah');
@@ -128,7 +126,6 @@ class HolidaysController extends Controller
             'mulai' => 'required',
             'selesai' => 'required',
             'keterangan' => 'required',
-            'lokasi' => 'required'
         ]);
 
         $data = $request->all();
@@ -137,8 +134,6 @@ class HolidaysController extends Controller
             'mulai' => $data['mulai'],
             'selesai' => $data['selesai'],
             'keterangan' => $data['keterangan'],
-            'lokasi' =>  json_encode($data['lokasi'])
-
         ]);
         return redirect('/libur')->with('status', 'Data Hari Libur Berhasil Diedit');
     }

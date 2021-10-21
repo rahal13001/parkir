@@ -56,7 +56,6 @@ integrity="sha256-pODNVtK3uOhL8FUNWWvFQK0QoQoV3YA9wGGng6mbZ0E=" crossorigin="ano
                         <th scope="col">No</th>
                         <th scope="col">Tanggal Mulai</th>
                         <th scope="col">Tanggal Selesai</th>
-                        <th scope="col">Lokasi</th>
                         <th scope="col">Keterangan</th>
                         <th scope="col">Aksi</th>
                     </tr>
@@ -143,7 +142,6 @@ integrity="sha256-pODNVtK3uOhL8FUNWWvFQK0QoQoV3YA9wGGng6mbZ0E=" crossorigin="ano
                     // {data: 'id', name : 'id'},
                     {data: 'mulai', name : 'mulai'},
                     {data: 'selesai', name : 'selesai'},
-                    {data: 'lokasi',name : 'lokasi'},
                     {data: 'keterangan', name : 'keterangan'},
                     {
                         data: 'aksi',

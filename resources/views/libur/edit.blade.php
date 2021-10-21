@@ -32,20 +32,7 @@
                     <input type="text" class="form-control @error('keterangan') is-invalid @enderror" name="keterangan" id="keterangan" placeholder="Masukan Nama" value="{{ $holiday->keterangan }}">
                     @error('keterangan') <div class="invalid-feedback"> {{ $message }} </div> @enderror
                   </div>
-          
-                  <div class="form-group mt-3">
-                  <label for="lokasi">Lokasi (Tekan Control/Command saat memilih lebih dari satu lokasi)</label>
-                  <select class="form-control form-select @error('lokasi') is-invalid @enderror" aria-label="lokasi" name="lokasi[]" multiple="multiple">
-                      <option value="Sorong">Sorong</option>
-                      <option value="Merauke">Merauke</option>
-                      <option value="Ambon">Ambon</option>
-                      <option value="Ternate">Ternate</option>
-                      {{-- <option value="Morotai">Morotai</option> --}}
-                    </select>
-                    @error('lokasi') <div class="invalid-feedback"> {{ $message }} </div> @enderror
-                  </div>
-                
-                    
+                        
             
                         <button type="submit" class="btn btn-primary float-left">Edit</button>
             </form>
