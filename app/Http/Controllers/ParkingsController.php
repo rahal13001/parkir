@@ -338,17 +338,20 @@ class ParkingsController extends Controller
         //memanggil lokasiparkir id
         foreach ($panggil as $data) {
             $item = $data->lokasiparkir->id;
-        }
-        $eksis = Parkinglocation::where('id', $item)->get('terparkir');
-        foreach ($eksis as $ada) {
-            $terparkir = $ada->terparkir;
+            $status = $data->status;
         }
 
-        $terparkir = $terparkir - 1;
-        Parkinglocation::where('id', $item)->update([
-            'terparkir' => $terparkir
-        ]);
+        if ($status == 'Masuk') {
+            $eksis = Parkinglocation::where('id', $item)->get('terparkir');
+            foreach ($eksis as $ada) {
+                $terparkir = $ada->terparkir;
+            }
 
+            $terparkir = $terparkir - 1;
+            Parkinglocation::where('id', $item)->update([
+                'terparkir' => $terparkir
+            ]);
+        }
         Parking::destroy($parking->id);
 
         return redirect('/parkir')->with('status', 'Data Parkir Berhasil Dihapus');
