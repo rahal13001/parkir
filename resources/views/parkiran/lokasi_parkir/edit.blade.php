@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('judul', 'Edit Antrian LPSPL Sorong')
+@section('judul', 'Edit Lokasi Parkir LPSPL Sorong')
 
 @section('isi')
 
