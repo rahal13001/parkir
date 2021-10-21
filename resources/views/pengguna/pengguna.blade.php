@@ -75,6 +75,12 @@
                 </div>
 
                 <div class="form-group mt-3">
+                  <label for="no_hp">Nomor HP</label>
+                    <input type="text" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp" id="no_hp" placeholder="Masukan Nomor HP" value="{{ old('no_hp') }}">
+                    @error('no_hp') <div class="invalid-feedback"> {{ $message }} </div> @enderror
+                  </div>
+
+                <div class="form-group mt-3">
                   <label for="jenis_kendaraan">Jenis Kendaraan</label>
                   <select class="form-select @error('jenis_kendaraan') is-invalid @enderror" aria-label="jenis_kendaraan" name="jenis_kendaraan">
                       <option selected value="{{ old('jenis_kendaraan') }}">{{ old('jenis_kendaraan') }}</option>
@@ -83,6 +89,12 @@
               </select>
               @error('jenis_kendaraan') <div class="invalid-feedback"> {{ $message }} </div> @enderror
               </div>
+
+              <div class="form-group mt-3">
+                <label for="merek">Merek Kendaraan</label>
+                  <input type="text" class="form-control @error('merek') is-invalid @enderror" name="merek" id="merek" placeholder="Masukan Merek Kendaraan" value="{{ old('merek') }}">
+                  @error('merek') <div class="invalid-feedback"> {{ $message }} </div> @enderror
+                </div>
 
             <div class="form-group mt-3">
                 <label for="parkinglocation_id">Lokasi Parkir</label>

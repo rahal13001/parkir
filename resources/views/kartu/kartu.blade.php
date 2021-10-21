@@ -29,7 +29,7 @@
     <h2 class="judul">Kartu Parkir LPSPL Sorong</h2>
     <h2 class="nomor_parkir">NOMOR PARKIR : {{ $nomor_parkir }}</h2>
     <h3 class="no_plat">Nomor Plat : {{ $no_plat }}</h3>
-    <h4 class="jenis_kendaraan">Jenis Kendaraan : {{ $jenis_kendaraan }} Warna : {{ $warna }}</h4>
+    <h4 class="jenis_kendaraan">Jenis Kendaraan : {{ $jenis_kendaraan }}, Merek : {{ $merek }}, Warna : {{ $warna }}</h4>
     <h4 class="lokasi">Lokasi Parkir : {{ $lokasi }}</h4>
     <p class="waktu">Tanggal : {{ $tanggal}}  Jam : {{ $jam}} WIT</p>
     </div>

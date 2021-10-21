@@ -24,7 +24,8 @@
                             <br>
                             <h4 class="text-center">Nomor Plat : {{ $no_plat }}</h4>
                             <h6 class="text-center">Nama : {{ $nama }}</h6>
-                            <h6 class="text-center">Tempat Parkir : {{ $lokasi }}, Jenis Kendaraan : {{ $jenis_kendaraan }}, Warna : {{ $warna }}</h6>
+                            <h6 class="text-center">Tempat Parkir : {{ $lokasi }}, Jenis Kendaraan : {{ $jenis_kendaraan }}</h6>
+                            <h6 class="text-center">Merek : {{ $merek }}, Warna : {{ $warna }}</h6>
                             <p class="text-center">Tanggal : {{ $tanggal }}, Jam : {{ $jam }}</p>
 
                             <br>
@@ -38,6 +39,7 @@
                             <input type="hidden" name="lokasi" value="{{ $lokasi }}">
                             <input type="hidden" name="jenis_kendaraan" value="{{ $jenis_kendaraan }}">
                             <input type="hidden" name="warna" value="{{ $warna }}">
+                            <input type="hidden" name="merek" value="{{ $merek }}">
                             <div class="container mt-3 text-center">
                                 <button class="btn btn-primary" type="submit">Download Kartu Parkir</button>
                             </div>

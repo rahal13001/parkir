@@ -156,7 +156,9 @@ class ParkingusersController extends Controller
             'parkinglocation_id' => 'required',
             'no_plat' => 'required',
             'jenis_kendaraan' => 'required',
-            'warna' => 'required'
+            'warna' => 'required',
+            'no_hp' => 'required',
+            'merek' => 'required'
         ]);
 
 
@@ -167,6 +169,8 @@ class ParkingusersController extends Controller
         $parkinglocation_id = $request->parkinglocation_id;
         $jenis_kendaraan = $request->jenis_kendaraan;
         $warna = $request->warna;
+        $no_hp = $request->no_hp;
+        $merek = $request->merek;
 
         //Melihat Jadwal Libur
         $libur = Holiday::whereDate('mulai', '<=', $tanggal)->whereDate('selesai', '>=', $tanggal)->orderBy('mulai')->limit(1)->get();
@@ -295,7 +299,9 @@ class ParkingusersController extends Controller
                 'parkinglocation_id' => $parkinglocation_id,
                 'jam' => $jam,
                 'jenis_kendaraan' => $jenis_kendaraan,
-                'warna' => $warna
+                'warna' => $warna,
+                'no_hp' => $no_hp,
+                'merek' => $merek
             ]);
 
             //mengupdate data kendaraan yang terparkir di lokasi parkir
@@ -311,7 +317,7 @@ class ParkingusersController extends Controller
                 $lokasi = $location->lokasiparkir->nama_lokasi;
             }
 
-            return view('pengguna.nomorparkir', compact('jam', 'nama', 'tanggal', 'nomor_parkir', 'no_plat', 'lokasi', 'display_nomorparkir', 'jenis_kendaraan', 'warna'));
+            return view('pengguna.nomorparkir', compact('jam', 'nama', 'tanggal', 'nomor_parkir', 'no_plat', 'lokasi', 'display_nomorparkir', 'jenis_kendaraan', 'warna', 'merek'));
         } else {
             //Memanggil hari dalam bahasa inggris
             // $bukalagi = $openingHours->nextOpen($now)->format('D');
@@ -399,8 +405,9 @@ class ParkingusersController extends Controller
         $jenis_kendaraan = $request->jenis_kendaraan;
         $warna = $request->warna;
         $lokasi = $request->lokasi;
+        $merek = $request->merek;
 
-        $pdf = PDF::loadView('kartu.kartu', compact('nama', 'tanggal', 'jam', 'no_plat', 'warna', 'nomor_parkir', 'jenis_kendaraan', 'lokasi'))->setPaper('a5', 'landscape');
+        $pdf = PDF::loadView('kartu.kartu', compact('nama', 'tanggal', 'jam', 'no_plat', 'warna', 'nomor_parkir', 'jenis_kendaraan', 'lokasi', 'merek'))->setPaper('a5', 'landscape');
         return $pdf->download('kartuparkir_' . $no_plat . '.pdf');
     }
 }

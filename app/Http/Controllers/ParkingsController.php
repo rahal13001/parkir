@@ -87,7 +87,9 @@ class ParkingsController extends Controller
             'jam' => 'required',
             'parkinglocation_id' => 'required',
             'no_plat' => 'required',
-            'jenis_kendaraan' => 'required'
+            'jenis_kendaraan' => 'required',
+            'no_hp' => 'required',
+            'merek' => 'required'
         ]);
 
         $tanggal = $request->tanggal;
@@ -97,6 +99,8 @@ class ParkingsController extends Controller
         $parkinglocation_id = $request->parkinglocation_id;
         $jenis_kendaraan = $request->jenis_kendaraan;
         $warna = $request->warna;
+        $no_hp = $request->no_hp;
+        $merek = $request->merek;
 
         if ($request->nomor_parkir == null) {
             $cek_data = Parking::where(['tanggal' => $tanggal])->get();
@@ -135,7 +139,9 @@ class ParkingsController extends Controller
             'parkinglocation_id' => $parkinglocation_id,
             'jam' => $jam,
             'jenis_kendaraan' => $jenis_kendaraan,
-            'warna' => $warna
+            'warna' => $warna,
+            'no_hp' => $no_hp,
+            'merek' => $merek
         ]);
 
         $terparkir = $keadaan + 1;
@@ -231,6 +237,8 @@ class ParkingsController extends Controller
             'jam' => 'required',
             'parkinglocation_id' => 'required',
             'no_plat' => 'required',
+            'no_hp' => 'required',
+            'merek' => 'merek',
             'jenis_kendaraan' => 'required'
         ]);
 
@@ -242,6 +250,8 @@ class ParkingsController extends Controller
         $jenis_kendaraan = $request->jenis_kendaraan;
         $warna = $request->warna;
         $status = $request->status;
+        $no_hp = $request->no_hp;
+        $merek = $request->merek;
 
         if ($request->nomor_parkir == null) {
             $cek_data = Parking::where(['tanggal' => $tanggal])->get();
@@ -314,6 +324,8 @@ class ParkingsController extends Controller
             'tanggal' => $tanggal,
             'nomor_parkir' => $nomor_parkir,
             'no_plat' => $no_plat,
+            'no_hp' => $no_hp,
+            'merek' => $merek,
             'nama' => $nama,
             'parkinglocation_id' => $parkinglocation_id,
             'jam' => $jam,

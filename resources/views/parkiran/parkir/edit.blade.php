@@ -41,6 +41,12 @@
                     <input type="text" class="form-control @error('no_plat') is-invalid @enderror" name="no_plat" id="no_plat" placeholder="Masukan Nomor HP" value="{{ $parking->no_plat }}">
                     @error('no_plat') <div class="invalid-feedback"> {{ $message }} </div> @enderror
                   </div>
+
+                  <div class="form-group mt-3">
+                    <label for="no_hp">Nomor HP</label>
+                      <input type="text" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp" id="no_hp" placeholder="Masukan Nomor HP" value="{{ $parking->no_hp }}">
+                      @error('no_hp') <div class="invalid-feedback"> {{ $message }} </div> @enderror
+                    </div>
                      
                   <div class="form-group mt-3">
                   <label for="jenis_kendaraan">Jenis Kendaraan</label>
@@ -52,6 +58,12 @@
                     </select>
                     @error('jenis_kendaraan') <div class="invalid-feedback"> {{ $message }} </div> @enderror
                   </div>
+
+                  <div class="form-group mt-3">
+                    <label for="merek">Merek Kendaraan</label>
+                      <input type="text" class="form-control @error('merek') is-invalid @enderror" name="merek" id="merek" placeholder="Masukan Merek Kendaraan" value="{{ $parking->merek }}">
+                      @error('merek') <div class="invalid-feedback"> {{ $message }} </div> @enderror
+                    </div>
 
                   <div class="form-group mt-3">
                     <label for="status">Status</label>

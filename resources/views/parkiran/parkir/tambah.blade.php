@@ -45,10 +45,16 @@
             
                     <div class="form-group mt-3">
                     <label for="no_plat">Nomor Plat</label>
-                      <input type="text" class="form-control @error('no_plat') is-invalid @enderror" name="no_plat" id="no_plat" placeholder="Masukan Nomor HP" value="{{ old('no_plat') }}">
+                      <input type="text" class="form-control @error('no_plat') is-invalid @enderror" name="no_plat" id="no_plat" placeholder="Masukan Nomor Plat Kendaraan" value="{{ old('no_plat') }}">
                       @error('no_plat') <div class="invalid-feedback"> {{ $message }} </div> @enderror
                     </div>
                        
+                    <div class="form-group mt-3">
+                      <label for="no_hp">Nomor HP</label>
+                        <input type="text" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp" id="no_hp" placeholder="Masukan Nomor HP" value="{{ old('no_hp') }}">
+                        @error('no_hp') <div class="invalid-feedback"> {{ $message }} </div> @enderror
+                      </div>
+
                     <div class="form-group mt-3">
                     <label for="jenis_kendaraan">Jenis Kendaraan</label>
                     <select class="form-control form-select @error('jenis_kendaraan') is-invalid @enderror" aria-label="jenis_kendaraan" name="jenis_kendaraan">
@@ -59,6 +65,12 @@
                       </select>
                       @error('jenis_kendaraan') <div class="invalid-feedback"> {{ $message }} </div> @enderror
                     </div>
+
+                    <div class="form-group mt-3">
+                      <label for="merek">Merek Kendaraan</label>
+                        <input type="text" class="form-control @error('merek') is-invalid @enderror" name="merek" id="merek" placeholder="Masukan Merek Kendaraan" value="{{ old('merek') }}">
+                        @error('merek') <div class="invalid-feedback"> {{ $message }} </div> @enderror
+                      </div>
 
                     <div class="form-group mt-3">
                       <label for="parkinglocation_id">Lokasi Parkir</label>

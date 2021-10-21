@@ -103,8 +103,16 @@ function template ( d ) {
             '<td>'+d.nama+'</td>'+
         '</tr>'+
         '<tr>'+
+            '<td>Nomor HP</td>'+
+            '<td>'+d.no_hp+'</td>'+
+        '</tr>'+
+        '<tr>'+
             '<td>Jenis Kendaraan</td>'+
             '<td>'+d.jenis_kendaraan+'</td>'+
+        '</tr>'+
+        '<tr>'+
+            '<td>Merek Kendaraan</td>'+
+            '<td>'+d.merek+'</td>'+
         '</tr>'+
         '<tr>'+
             '<td>Warna Kendaraan</td>'+
